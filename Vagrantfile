@@ -2,15 +2,15 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  if Vagrant.has_plugin?("vagrant-proxyconf")
-    config.proxy.http     = "http://proxy.tencent.com:8080"
-    config.proxy.https    = "http://proxy.tencent.com:8080"
-    config.proxy.no_proxy = "localhost,127.0.0.1,.example.com"
-  end
+#  if Vagrant.has_plugin?("vagrant-proxyconf")
+#    config.proxy.http     = "http://proxy.tencent.com:8080"
+#    config.proxy.https    = "http://proxy.tencent.com:8080"
+#    config.proxy.no_proxy = "localhost,127.0.0.1,.example.com"
+#  end
 
   config.vm.box_check_update = false
   config.vm.provider 'virtualbox' do |vb|
-#   vb.customize [ "guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 1000 ]
+   vb.customize [ "guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 1000 ]
 #   vb.customize [ "modifyvm", :id, "--natdnshostresolver1", "on"]
 #   vb.customize [ "modifyvm", :id, "--natdnsproxy1", "on"]
   end
