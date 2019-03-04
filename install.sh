@@ -37,9 +37,9 @@ EOF
 
 cat /etc/hosts
 
-echo 'set nameserver'
-echo "nameserver 8.8.8.8">/etc/resolv.conf
-cat /etc/resolv.conf
+#echo 'set nameserver'
+#echo "nameserver 8.8.8.8">/etc/resolv.conf
+#cat /etc/resolv.conf
 
 echo 'disable swap'
 swapoff -a
@@ -132,7 +132,7 @@ cp /vagrant/conf/bootstrap.kubeconfig /etc/kubernetes/
 cp /vagrant/conf/kube-proxy.kubeconfig /etc/kubernetes/
 cp /vagrant/conf/kubelet.kubeconfig /etc/kubernetes/
 
-tar -xzvf /vagrant/kubernetes-server-linux-amd64.tar.gz -C /vagrant
+tar -xzvf ${kubernetes_release} -C /vagrant
 cp /vagrant/kubernetes/server/bin/* /usr/bin
 
 dos2unix -q /vagrant/systemd/*.service
