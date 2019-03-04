@@ -10,7 +10,8 @@ ENV KUBERNETES_VERSION=v1.9.1
 RUN wget https://download.docker.com/linux/ubuntu/dists/trusty/pool/stable/amd64/$DOCKER_VERSION
 RUN dpkg -i $DOCKER_VERSION
 # Set up Kubernetes
-RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$KUBERNETES_VERSION/bin/linux/amd64/kubectl
+ADD ../../kubernetes/client/bin/kubectl ~/kubectl
+#RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$KUBERNETES_VERSION/bin/linux/amd64/kubectl
 RUN chmod +x ./kubectl
 RUN mv ./kubectl /usr/local/bin/kubectl
 # Configure access to the Kubernetes Cluster
