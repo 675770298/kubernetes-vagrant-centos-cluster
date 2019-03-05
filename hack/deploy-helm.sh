@@ -7,6 +7,7 @@ else
   curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
   chmod 700 get_helm.sh
   ./get_helm.sh
+  # https://kubernetes-helm.storage.googleapis.com/helm-v2.13.0-darwin-amd64.tar.gz
 fi
 kubectl create serviceaccount --namespace kube-system tiller
 kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
